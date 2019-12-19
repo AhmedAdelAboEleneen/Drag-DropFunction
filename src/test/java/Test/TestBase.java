@@ -54,7 +54,7 @@ public class TestBase {
     @AfterTest
     public void stopDriver() {
 
-       // driver.quit();
+        driver.quit();
     }
 
     // Take Screenshot when test case fail and add it in screenshot folder
