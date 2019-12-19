@@ -42,7 +42,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // Stage Link
-        driver.navigate().to("link Stage here");
+        driver.navigate().to("http://cookbook.seleniumacademy.com/DragDropDemo.html");
 
         // Demo Link
         // driver.navigate().to("Link demo here");
@@ -54,7 +54,7 @@ public class TestBase {
     @AfterTest
     public void stopDriver() {
 
-        driver.quit();
+       // driver.quit();
     }
 
     // Take Screenshot when test case fail and add it in screenshot folder
