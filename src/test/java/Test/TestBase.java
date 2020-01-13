@@ -1,5 +1,6 @@
 package Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,25 +20,13 @@ public class TestBase {
     public void startDriver(@Optional("firefox") String browserName) {
 
         if (browserName.equalsIgnoreCase("firefox")) {
-
-            // For Windows
-
-             System.setProperty("webdriver.gecko.driver",
-             System.getProperty("user.dir") + "/drivers/geckodriver.exe");
-
-           /*  For Linux
-            System.setProperty("webdriver.gecko.driver",
-                    System.getProperty("user.dir") + "/drivers/geckodriver");*/
-
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
 
         } else if (browserName.equalsIgnoreCase("chrome")) {
-
-            System.setProperty("webdriver.chrome.driver",
-                    System.getProperty("user.dir") + "/drivers/chromedriver");
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         }
-
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
